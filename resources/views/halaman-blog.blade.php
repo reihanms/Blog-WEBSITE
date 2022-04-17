@@ -24,7 +24,14 @@
 @if ($blog->count())
 
 <div class="card mb-3">
+  {{-- validasi apakah user upload gambar atau engga --}}
+    @if ($blog[0]->image)
+    <div style="max-height:350px; overflow:hidden">
+        <img src="{{ asset('storage/' . $blog[0]->image) }}" class="card-img-top" alt="...">
+    </div>
+    @else
     <img src="https:source.unsplash.com/1200x400?{{ $blog[0]->category->name }}" class="card-img-top" alt="...">
+    @endif
     <div class="card-body text-center">
       <h5 class="card-title">{{ $blog[0]->title }}</h5>
 
@@ -53,7 +60,14 @@
                     </div>
                   </a>
                   <a href="/halaman-blog/{{ $blogspot->slug }}"class ="text-decoration-none text-black">
+                    {{-- validasi apakah user upload gambar atau engga --}}
+                    @if ($blogspot->image)
+                    <div style="max-height:400px; overflow:hidden">
+                        <img src="{{ asset('storage/' . $blogspot->image) }}" class="card-img-top" alt="...">
+                    </div>
+                    @else
                     <img src="https:source.unsplash.com/500x400?{{ $blogspot->category->name }}" class="card-img-top" alt="...">
+                    @endif            
                     <div class="card-body">
                       <h5 class="card-title">{{ $blogspot->title }}</h5>
                     </a>                        

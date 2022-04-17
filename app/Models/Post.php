@@ -2,13 +2,15 @@
 
 namespace App\Models;
 
+
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Cviebrock\EloquentSluggable\Sluggable;
+use Illuminate\Notifications\Notifiable;
 
 class Post extends Model
 {
-    use HasFactory;
-
+    use Notifiable, HasFactory;
     // protected $fillable=['title','excerpt','body']; 
     protected $guarded=['id'];
     protected $with = ['user','category'];
@@ -41,4 +43,9 @@ class Post extends Model
             $query->where('username', $user))
         );
     }
+
+    public function getRouteKeyName(){
+        return 'slug';
+    }
+    // otomatisasi pembuatan slug   
 }

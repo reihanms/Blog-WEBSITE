@@ -9,8 +9,7 @@
         <div class="section-wrapper block content-1170 center-relative">                        
             <div class="content-wrapper">
                 <h1 class="entry-title big-title">
-                    Forum Artikel Terbesar <br>
-                    RT3 RW5                    
+                    Forum Artikel Terkini               
                 </h1>
                 <p class="site-description">
                     Yuk Cari Tau Ada Apa dengan Dunia <br> 
@@ -23,7 +22,7 @@
             <img class="dots" src="images/dots.png" alt="Dots" />
             <a href="#contact" class="button home-button">CONTACT US</a>                                                    
             <div class="home-full-width-background">
-                <img class="logo-icon" src="images/icon_logo.png" alt="Meelo Icon" />                                                     
+                                                                    
             </div>                        
         </div>
     </div> 

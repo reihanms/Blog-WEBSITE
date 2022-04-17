@@ -6,7 +6,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
-use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\AdminCategoryController;
+use App\Http\Controllers\DashboardPostController;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -46,5 +49,15 @@ Route::get('/register',[RegisterController::class,'index'])->middleware('guest')
 Route::post('/register',[RegisterController::class,'store']);
 
 //dashboard
-Route::get('/dashboard',[DashboardController::class,'index'])->middleware('auth');
+Route::get('/dashboard',function(){
+    return view('dashboard.index',[
+        'title' => 'MFL | Dashboard',
+    ]);
 
+})->middleware('auth');
+
+// ROUTES TIPE RESOURCE INI OTOMATIS UNTUK MENGELOLA CRUD DASHBOARD
+Route::resource('/dashboard/mypost', DashboardPostController::class)->middleware('auth');
+
+// ROUTE ADMIN CATEGORY
+Route::resource('/dashboard/categories', AdminCategoryController::class)->except('show')->middleware('admin');
